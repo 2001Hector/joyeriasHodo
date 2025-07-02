@@ -15,7 +15,110 @@ $offset = ($pagina_actual - 1) * $registros_por_pagina;
     <link rel="stylesheet" href="../src/output.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <title>Joyería Hodo - Administración de Pedidos</title>
+<!-- Agrega esto para el menú móvil -->
+  <!-- Tailwind CSS -->
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+    }
+  </script>
 </head>
+<body class="bg-gray-100 min-h-screen">
+
+  <!-- Navbar mejorado con menú móvil -->
+  <nav class="bg-gradient-to-r from-yellow-600 to-yellow-800 shadow-lg">
+    <div class="container mx-auto px-4">
+      <div class="flex justify-between items-center py-4">
+        <div class="flex items-center space-x-4">
+          <i class="fas fa-gem text-white text-2xl"></i>
+          <span class="text-white font-bold text-xl">Joyería hodo</span>
+        </div>
+        
+        <!-- Menú para desktop (visible en md y arriba) -->
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="../php/index.php" class="text-white hover:text-yellow-200 font-medium transition duration-300 px-3 py-2 rounded-md">
+            <i class="fas fa-home mr-2"></i>Inicio
+          </a>
+          <a href="../php/ver_productos.php" class="text-white hover:text-yellow-200 font-medium transition duration-300 px-3 py-2 rounded-md">
+            <i class="fas fa-eye mr-2"></i>Ver Productos
+          </a>
+           <a href="../php/hacerP.php" class="text-white hover:text-yellow-200 font-medium transition duration-300">
+    <i class="fas fa-shopping-basket mr-2"></i>hacer Pedidos
+   </a>
+<a href="../php/vistaUsuarios.php" class="text-white hover:text-yellow-200 font-medium transition duration-300 px-3 py-2 rounded-md">
+    <i class="fas fa-users mr-2"></i>Vista de clientes
+</a>
+
+<a href="../php/estados.php" class="text-white hover:text-yellow-200 font-medium transition duration-300 px-3 py-2 rounded-md">
+  <i class="fas fa-truck mr-2"></i>Estado de pedidos
+</a>
+
+
+
+          <a href="../php/vistaUsuarios.php" class="text-white hover:text-yellow-200 font-medium transition duration-300 px-3 py-2 rounded-md">
+            <i class="fas fa-chart-line mr-2"></i>Reportes
+          </a>
+        </div>
+        
+        <!-- Botón hamburguesa para móvil (visible en md abajo) -->
+        <div class="md:hidden flex items-center">
+          <button id="menu-btn" class="text-white focus:outline-none">
+            <i class="fas fa-bars text-2xl"></i>
+          </button>
+        </div>
+      </div>
+      
+      <!-- Menú móvil (oculto por defecto) -->
+      <div id="mobile-menu" class="hidden md:hidden pb-4">
+        <div class="flex flex-col space-y-3 px-2 pt-2">
+          <a href="../php/index.php" class="text-white hover:text-yellow-200 font-medium transition duration-300 px-3 py-2 rounded-md">
+            <i class="fas fa-home mr-2"></i>Inicio
+          </a>
+          <a href="../php/ver_productos.php" class="text-white hover:text-yellow-200 font-medium transition duration-300 px-3 py-2 rounded-md">
+            <i class="fas fa-eye mr-2"></i>Ver Productos
+          </a>
+           <a href="../php/hacerP.php" class="text-white hover:text-yellow-200 font-medium transition duration-300">
+    <i class="fas fa-shopping-basket mr-2"></i>hacer Pedidos
+   </a>
+<a href="../php/vistaUsuarios.php" class="text-white hover:text-yellow-200 font-medium transition duration-300 px-3 py-2 rounded-md">
+    <i class="fas fa-users mr-2"></i>Vista de clientes
+</a>
+
+<a href="../php/estados.php" class="text-white hover:text-yellow-200 font-medium transition duration-300 px-3 py-2 rounded-md">
+  <i class="fas fa-truck mr-2"></i>Estado de pedidos
+</a>
+
+
+          <a href="../php/vistaUsuarios.php" class="text-white hover:text-yellow-200 font-medium transition duration-300 px-3 py-2 rounded-md">
+            <i class="fas fa-chart-line mr-2"></i>Reportes
+          </a>
+          
+          
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Script para el menú móvil -->
+  <script>
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+      // Cambiar el ícono entre hamburguesa y X
+      const icon = menuBtn.querySelector('i');
+      if (mobileMenu.classList.contains('hidden')) {
+        icon.classList.remove('fa-times');
+        icon.classList.add('fa-bars');
+      } else {
+        icon.classList.remove('fa-bars');
+        icon.classList.add('fa-times');
+      }
+    });
+  </script>
+<!-- asta ca termina el escrip para movil -->
 <body class="bg-gray-100 p-4">
     <div class="max-w-7xl mx-auto">
         <h1 class="text-2xl font-bold mb-6">Administración de Pedidos</h1>
