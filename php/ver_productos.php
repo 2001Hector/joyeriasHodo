@@ -116,6 +116,7 @@ try {
 <a href="../php/vistaUsuarios.php" class="text-white hover:text-yellow-200 font-medium transition duration-300 px-3 py-2 rounded-md">
     <i class="fas fa-users mr-2"></i>Vista de clientes
 </a>
+
 <a href="../php/estados.php" class="text-white hover:text-yellow-200 font-medium transition duration-300 px-3 py-2 rounded-md">
   <i class="fas fa-truck mr-2"></i>Estado de pedidos
 </a>
