@@ -81,7 +81,7 @@ try {
            <a href="../php/hacerP.php" class="text-white hover:text-yellow-200 font-medium transition duration-300">
     <i class="fas fa-shopping-basket mr-2"></i>hacer Pedidos
    </a>
-<a href="../php/vistaUsuarios.php" class="text-white hover:text-yellow-200 font-medium transition duration-300 px-3 py-2 rounded-md">
+<a href="../php/productos_generalesU.php" class="text-white hover:text-yellow-200 font-medium transition duration-300 px-3 py-2 rounded-md">
     <i class="fas fa-users mr-2"></i>Vista de clientes
 </a>
 <a href="../php/estados.php" class="text-white hover:text-yellow-200 font-medium transition duration-300 px-3 py-2 rounded-md">
@@ -104,7 +104,7 @@ try {
       <!-- Menú móvil (oculto por defecto) -->
       <div id="mobile-menu" class="hidden md:hidden pb-4">
         <div class="flex flex-col space-y-3 px-2 pt-2">
-          <a href="../php/index.php" class="text-white hover:text-yellow-200 font-medium transition duration-300 px-3 py-2 rounded-md">
+           <a href="../php/index.php" class="text-white hover:text-yellow-200 font-medium transition duration-300 px-3 py-2 rounded-md">
             <i class="fas fa-home mr-2"></i>Inicio
           </a>
           <a href="../php/ver_productos.php" class="text-white hover:text-yellow-200 font-medium transition duration-300 px-3 py-2 rounded-md">
@@ -113,14 +113,12 @@ try {
            <a href="../php/hacerP.php" class="text-white hover:text-yellow-200 font-medium transition duration-300">
     <i class="fas fa-shopping-basket mr-2"></i>hacer Pedidos
    </a>
-<a href="../php/vistaUsuarios.php" class="text-white hover:text-yellow-200 font-medium transition duration-300 px-3 py-2 rounded-md">
+<a href="../php/productos_generalesU.php" class="text-white hover:text-yellow-200 font-medium transition duration-300 px-3 py-2 rounded-md">
     <i class="fas fa-users mr-2"></i>Vista de clientes
 </a>
-
 <a href="../php/estados.php" class="text-white hover:text-yellow-200 font-medium transition duration-300 px-3 py-2 rounded-md">
   <i class="fas fa-truck mr-2"></i>Estado de pedidos
 </a>
-
 
           <a href="../php/vistaUsuarios.php" class="text-white hover:text-yellow-200 font-medium transition duration-300 px-3 py-2 rounded-md">
             <i class="fas fa-chart-line mr-2"></i>Reportes

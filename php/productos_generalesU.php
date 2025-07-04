@@ -11,7 +11,7 @@ try {
     $stmt = $conexionJ->query($query);
     $productos = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-    // Obtener categorías únicas para el selector
+    // Obtener categorías únicas para el selector (aunque no lo usaremos)
     $queryCategorias = "SELECT DISTINCT categoria_p FROM productos WHERE categoria_p IS NOT NULL AND categoria_p != ''";
     $stmtCategorias = $conexionJ->query($queryCategorias);
     $categorias = $stmtCategorias->fetchAll(PDO::FETCH_COLUMN);
@@ -275,6 +275,40 @@ $whatsappNumber = "573208320246"; // Reemplaza con tu número
         .btn-saved {
             background-color: #10B981 !important;
         }
+        
+        /* Estilos para el buscador */
+        .search-container {
+            position: relative;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            width: 100%;
+        }
+        
+        .search-input {
+            width: 100%;
+            padding: 12px 20px;
+            padding-right: 50px;
+            border: 2px solid #ddd;
+            border-radius: 30px;
+            font-size: 16px;
+            outline: none;
+            transition: all 0.3s;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .search-input:focus {
+            border-color: #7c3aed;
+            box-shadow: 0 2px 15px rgba(124, 58, 237, 0.2);
+        }
+        
+        .search-icon {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #7c3aed;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body class="bg-gray-100 min-h-screen">
@@ -292,9 +326,10 @@ $whatsappNumber = "573208320246"; // Reemplaza con tu número
                 <a href="../php/categorias.php" class="text-white hover:text-gray-300 font-medium transition duration-300 px-3 py-2 rounded-md">
                     <i class="fas fa-info-circle mr-2"></i>Categorías
                 </a>   
-                <a href="../php/personalizar_producto.php" class="text-white hover:text-gray-300 font-medium transition duration-300 px-3 py-2 rounded-md">
-                    <i class="fas fa-crown mr-2"></i>Personalización de joyas
-                </a>
+                  <a href="../php/personalizar_producto.php" class="text-white hover:text-gray-300 font-medium transition duration-300 px-3 py-2 rounded-md">
+                        <i class="fas fa-crown mr-2"></i>Personalización de joyas
+                    </a>
+
                 <a href="../php/informacion.php" class="text-white hover:text-gray-300 font-medium transition duration-300 px-3 py-2 rounded-md">
                     <i class="fas fa-info-circle mr-2"></i>Garantías e información
                 </a>
@@ -323,6 +358,7 @@ $whatsappNumber = "573208320246"; // Reemplaza con tu número
                 <a href="../php/personalizar_producto.php" class="text-white hover:text-gray-300 font-medium transition duration-300 px-3 py-2 rounded-md">
                     <i class="fas fa-crown mr-2"></i>Personalización de joyas
                 </a>
+
                 <a href="../php/informacion.php" class="text-white hover:text-gray-300 font-medium transition duration-300 px-3 py-2 rounded-md">
                     <i class="fas fa-info-circle mr-2"></i>Garantías e información
                 </a>
@@ -360,7 +396,7 @@ $whatsappNumber = "573208320246"; // Reemplaza con tu número
                             Precio: $<?= number_format($item['precio_producto'], 0, ',', '.') ?>
                         </p>
                         <p class="text-gray-600 text-sm">
-                            Cantidad: <span class="item-quantity"><?= $item['quantity'] ?></span>
+                            Cantidad: <?= $item['quantity'] ?>
                         </p>
                         <?php if (!empty($item['personalizaciones'])): ?>
                             <div class="text-xs text-gray-500 mt-1">
@@ -401,17 +437,15 @@ $whatsappNumber = "573208320246"; // Reemplaza con tu número
             </h4>
             <div class="text-sm text-blue-700">
                 <p class="mb-1"><i class="fas fa-check-circle text-green-500 mr-1"></i>Transferencias bancarias💳</p>
-                <p><i class="fas fa-check-circle text-green-500 mr-1"></i> Pago contra entrega 💰</p>
-                <p><i class="fas fa-check-circle text-green-500 mr-1"></i> Envío gratis incluido🚚</p>
+                    <p><i class="fas fa-check-circle text-green-500 mr-1"></i> Pago contra entrega 💰</p>
+                    <p><i class="fas fa-check-circle text-green-500 mr-1"></i> Envío gratis incluido🚚</p>
             </div>
         </div>
         
         <div class="cart-total">
             <span class="font-semibold">Total:</span>
             <span id="cart-total" class="text-xl font-bold text-blue-800">
-                $<?= number_format(array_sum(array_map(function($item) { 
-                    return ($item['precio_producto'] + ($item['costo_personalizacion'] ?? 0)) * $item['quantity']; 
-                }, $_SESSION['carrito'] ?? [])), 0, ',', '.') ?>
+                $<?= number_format(array_sum(array_map(function($item) { return $item['precio'] * $item['quantity']; }, $_SESSION['carrito'] ?? [])), 0, ',', '.') ?>
             </span>
         </div>
         
@@ -429,15 +463,10 @@ $whatsappNumber = "573208320246"; // Reemplaza con tu número
 <div class="container mx-auto px-4 py-8">
     <h1 class="text-3xl font-bold text-center mb-8">Nuestros Productos</h1>
     
-    <div class="mb-8 max-w-md mx-auto shadow-xl">
-        <div class="relative">
-            <select id="categoria-busqueda" class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent">
-                <option value="">Todas las categorías</option>
-                <?php foreach ($categorias as $categoria): ?>
-                    <option value="<?php echo htmlspecialchars(strtolower($categoria)); ?>"><?php echo htmlspecialchars($categoria); ?></option>
-                <?php endforeach; ?>
-            </select>
-        </div>
+    <!-- Buscador mejorado -->
+    <div class="search-container">
+        <input type="text" id="search-input" class="search-input" placeholder="Buscar productos por nombre, código o descripción..." autocomplete="off">
+        <i class="fas fa-search search-icon" id="search-icon"></i>
     </div>
     
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 inset-shadow-sm" id="productos-container">
@@ -621,17 +650,25 @@ $whatsappNumber = "573208320246"; // Reemplaza con tu número
             }
         });
 
-        // Búsqueda por categoría
-        document.getElementById('categoria-busqueda').addEventListener('change', function() {
-            const categoriaSeleccionada = this.value.trim().toLowerCase();
+        // Búsqueda mejorada
+        const searchInput = document.getElementById('search-input');
+        const searchIcon = document.getElementById('search-icon');
+        
+        function performSearch() {
+            const searchTerm = searchInput.value.trim().toLowerCase();
             const productos = document.querySelectorAll('.producto');
             const noResults = document.getElementById('no-results');
             let hasResults = false;
             
             productos.forEach(producto => {
-                const categoria = producto.dataset.categoria;
+                const nombre = producto.dataset.nombre;
+                const codigo = producto.dataset.codigo;
+                const descripcion = producto.dataset.descripcion;
                 
-                if (categoriaSeleccionada === '' || categoria.includes(categoriaSeleccionada)) {
+                if (searchTerm === '' || 
+                    nombre.includes(searchTerm) || 
+                    codigo.includes(searchTerm) || 
+                    descripcion.includes(searchTerm)) {
                     producto.style.display = 'block';
                     hasResults = true;
                 } else {
@@ -640,7 +677,16 @@ $whatsappNumber = "573208320246"; // Reemplaza con tu número
             });
             
             noResults.style.display = hasResults ? 'none' : 'flex';
+        }
+        
+        // Eventos para el buscador
+        searchInput.addEventListener('input', performSearch);
+        searchInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                performSearch();
+            }
         });
+        searchIcon.addEventListener('click', performSearch);
         
         // Carrito de compras - Funciones mejoradas
         const cartIcon = document.getElementById('cart-icon');
@@ -648,6 +694,8 @@ $whatsappNumber = "573208320246"; // Reemplaza con tu número
         const cartModal = document.getElementById('cart-modal');
         const cartOverlay = document.getElementById('cart-overlay');
         const closeCart = document.getElementById('close-cart');
+        const cartItemsContainer = document.getElementById('cart-items');
+        const cartSummary = document.getElementById('cart-summary');
         const clearCartBtn = document.getElementById('clear-cart');
         const checkoutBtn = document.getElementById('checkout');
         const cartCount = document.getElementById('cart-count');
@@ -658,6 +706,7 @@ $whatsappNumber = "573208320246"; // Reemplaza con tu número
             cartModal.classList.add('open');
             cartOverlay.classList.add('open');
             document.body.style.overflow = 'hidden';
+            actualizarCarrito();
         }
 
         // Cerrar carrito
@@ -667,18 +716,15 @@ $whatsappNumber = "573208320246"; // Reemplaza con tu número
             document.body.style.overflow = '';
         }
 
-        // Actualizar vista del carrito
-        function updateCartView() {
+        // Actualizar carrito
+        function actualizarCarrito() {
             $.post('../php/personalizar_producto.php', {
                 action: 'get_cart'
             }, function(data) {
                 if (data.cart && data.cart.length > 0) {
                     let html = '';
-                    let total = 0;
                     
                     data.cart.forEach(item => {
-                        total += (item.precio_producto + (item.costo_personalizacion || 0)) * item.quantity;
-                        
                         html += `
                             <div class="cart-item flex items-start border-b border-gray-200 pb-4" data-id="${item.id_producto}">
                                 <div class="cart-item-img w-20 h-20 bg-gray-100 rounded overflow-hidden mr-4">
@@ -694,7 +740,7 @@ $whatsappNumber = "573208320246"; // Reemplaza con tu número
                                         Precio: $${item.precio_producto.toLocaleString('es-CO')}
                                     </p>
                                     <p class="text-gray-600 text-sm">
-                                        Cantidad: <span class="item-quantity">${item.quantity}</span>
+                                        Cantidad: ${item.quantity}
                                     </p>
                                     ${item.personalizaciones && item.personalizaciones.length > 0 ? `
                                         <div class="text-xs text-gray-500 mt-1">
@@ -720,159 +766,84 @@ $whatsappNumber = "573208320246"; // Reemplaza con tu número
                         `;
                     });
                     
-                    $('#cart-items').html(html);
-                    $('#cart-total').text('$' + total.toLocaleString('es-CO'));
-                    $('#cart-summary').show();
+                    cartItemsContainer.innerHTML = html;
+                    document.getElementById('cart-total').textContent = `$${data.total.toLocaleString('es-CO')}`;
+                    cartSummary.style.display = 'block';
                 } else {
-                    $('#cart-items').html(`
+                    cartItemsContainer.innerHTML = `
                         <div class="text-center py-8 text-gray-500">
                             <i class="fas fa-shopping-cart fa-3x mb-4"></i>
                             <p>Tu carrito está vacío</p>
                         </div>
-                    `);
-                    $('#cart-summary').hide();
+                    `;
+                    cartSummary.style.display = 'none';
                 }
                 
-                $('#cart-count, #cart-count-mobile').text(data.count || 0);
-                
-                // Actualizar botones de agregar al carrito
-                $('.btn-add-to-cart').each(function() {
-                    const productId = $(this).data('id');
-                    const inCart = data.cart && data.cart.some(item => item.id_producto == productId);
-                    
-                    if (inCart) {
-                        $(this).html('<i class="fas fa-check mr-1"></i> Guardado');
-                        $(this).addClass('btn-saved');
-                        $(this).prop('disabled', true);
-                    } else {
-                        $(this).html('<i class="fas fa-cart-plus mr-1"></i> Agregar');
-                        $(this).removeClass('btn-saved');
-                        $(this).prop('disabled', false);
-                    }
-                });
+                cartCount.textContent = data.count || 0;
+                cartCountMobile.textContent = data.count || 0;
             }, 'json');
         }
 
-        // Cambiar cantidad de un producto en el carrito
-      $(document).on('click', '.change-quantity', function(e) {
-    e.preventDefault();
-    const action = $(this).data('action');
-    const productId = $(this).data('id');
-    const $cartItem = $(this).closest('.cart-item');
-    
-    $.ajax({
-        url: '../php/personalizar_producto.php',
-        type: 'POST',
-        data: {
-            action: 'update_quantity',
-            id: productId,
-            operation: action
-        },
-        dataType: 'json',
-        success: function(data) {
-            if (data.success) {
-                // Actualizar todos los elementos de cantidad para este producto
-                $cartItem.find('.quantity, .item-quantity').text(data.quantity);
-                
-                // Actualizar contador y total
-                $('#cart-count, #cart-count-mobile').text(data.count);
-                $('#cart-total').text('$' + data.total.toLocaleString('es-CO'));
-                
-                // Si la cantidad llega a 0, eliminar el elemento del DOM
-                if (data.quantity <= 0) {
-                    $cartItem.remove();
-                    
-                    // Verificar si el carrito quedó vacío
-                    if ($('#cart-items .cart-item').length === 0) {
-                        $('#cart-items').html(`
-                            <div class="text-center py-8 text-gray-500">
-                                <i class="fas fa-shopping-cart fa-3x mb-4"></i>
-                                <p>Tu carrito está vacío</p>
-                            </div>
-                        `);
-                        $('#cart-summary').hide();
-                    }
-                }
-                
-                // Mostrar notificación
-                const notification = document.createElement('div');
-                notification.className = 'fixed top-4 right-4 bg-blue-500 text-white px-4 py-2 rounded shadow-lg transition-opacity duration-500';
-                notification.innerHTML = `<i class="fas fa-sync-alt mr-2"></i> Cantidad actualizada`;
-                document.body.appendChild(notification);
-                
-                setTimeout(() => {
-                    notification.style.opacity = '0';
-                    setTimeout(() => notification.remove(), 500);
-                }, 1500);
-            } else {
-                alert(data.message || 'Error al actualizar la cantidad');
-            }
-        },
-        error: function(xhr, status, error) {
-            console.error('Error:', error);
-            alert('Error de conexión al actualizar la cantidad');
-        }
-    });
-});
-
-        // Eliminar producto del carrito
-        $(document).on('click', '.remove-item', function(e) {
-            e.preventDefault();
-            const productId = $(this).data('id');
-            const $cartItem = $(this).closest('.cart-item');
+        // Manejar eventos del carrito
+        $(document).on('click', '.change-quantity', function() {
+            const action = $(this).data('action');
+            const id = $(this).data('id');
+            const $quantity = $(this).siblings('.quantity');
+            let newQuantity = parseInt($quantity.text());
             
-            $.ajax({
-                url: '../php/personalizar_producto.php',
-                type: 'POST',
-                data: {
-                    action: 'remove',
-                    id: productId
-                },
-                dataType: 'json',
-                success: function(data) {
-                    if (data.success) {
-                        // Eliminar el elemento del DOM
-                        $cartItem.remove();
-                        
-                        // Actualizar contador y total
-                        $('#cart-count, #cart-count-mobile').text(data.count);
-                        $('#cart-total').text('$' + data.total.toLocaleString('es-CO'));
-                        
-                        // Verificar si el carrito quedó vacío
-                        if ($('#cart-items .cart-item').length === 0) {
-                            $('#cart-items').html(`
-                                <div class="text-center py-8 text-gray-500">
-                                    <i class="fas fa-shopping-cart fa-3x mb-4"></i>
-                                    <p>Tu carrito está vacío</p>
-                                </div>
-                            `);
-                            $('#cart-summary').hide();
-                        }
-                        
-                        // Mostrar notificación
-                        const notification = document.createElement('div');
-                        notification.className = 'fixed top-4 right-4 bg-red-500 text-white px-4 py-2 rounded shadow-lg transition-opacity duration-500';
-                        notification.innerHTML = `<i class="fas fa-trash-alt mr-2"></i> Producto eliminado`;
-                        document.body.appendChild(notification);
-                        
-                        setTimeout(() => {
-                            notification.style.opacity = '0';
-                            setTimeout(() => notification.remove(), 500);
-                        }, 1500);
-                        
-                        // Habilitar el botón de agregar al carrito para este producto
-                        $(`.btn-add-to-cart[data-id="${productId}"]`).html('<i class="fas fa-cart-plus mr-1"></i> Agregar');
-                        $(`.btn-add-to-cart[data-id="${productId}"]`).removeClass('btn-saved');
-                        $(`.btn-add-to-cart[data-id="${productId}"]`).prop('disabled', false);
-                    } else {
-                        alert('Error al eliminar el producto');
-                    }
-                },
-                error: function() {
-                    alert('Error de conexión al eliminar el producto');
+            if (action === 'increase') {
+                newQuantity++;
+            } else if (action === 'decrease' && newQuantity > 1) {
+                newQuantity--;
+            }
+            
+            $.post('../php/personalizar_producto.php', {
+                action: 'update',
+                id: id,
+                quantity: newQuantity
+            }, function(data) {
+                if (data.success) {
+                    $quantity.text(newQuantity);
+                    $('#cart-total').text('$' + data.total.toLocaleString('es-CO'));
+                    $('#cart-count, #cart-count-mobile').text(data.count);
                 }
-            });
+            }, 'json');
         });
+        
+        $(document).on('click', '.remove-item', function() {
+            const id = $(this).data('id');
+            
+            $.post('../php/personalizar_producto.php', {
+                action: 'remove',
+                id: id
+            }, function(data) {
+                if (data.success) {
+                    actualizarCarrito();
+                    // Habilitar botón de agregar al carrito
+                    $(`.btn-add-to-cart[data-id="${id}"]`).each(function() {
+                        $(this).html('<i class="fas fa-cart-plus mr-1"></i> Agregar');
+                        $(this).removeClass('btn-saved');
+                        $(this).prop('disabled', false);
+                    });
+                    
+                    // Mostrar notificación
+                    const notification = document.createElement('div');
+                    notification.className = 'fixed top-4 right-4 bg-green-500 text-white px-4 py-2 rounded shadow-lg transition-opacity duration-500';
+                    notification.innerHTML = `<i class="fas fa-check-circle mr-2"></i> Producto eliminado del carrito`;
+                    document.body.appendChild(notification);
+                    
+                    setTimeout(() => {
+                        notification.style.opacity = '0';
+                        setTimeout(() => notification.remove(), 500);
+                    }, 2000);
+                }
+            }, 'json');
+        });
+
+        cartIcon.addEventListener('click', openCart);
+        cartIconMobile.addEventListener('click', openCart);
+        cartOverlay.addEventListener('click', closeCartModal);
+        closeCart.addEventListener('click', closeCartModal);
 
         // Vaciar carrito
         clearCartBtn.addEventListener('click', function() {
@@ -880,12 +851,19 @@ $whatsappNumber = "573208320246"; // Reemplaza con tu número
                 action: 'clear_cart'
             }, function(data) {
                 if (data.success) {
-                    updateCartView();
+                    actualizarCarrito();
+                    
+                    // Habilitar todos los botones de agregar al carrito
+                    $('.btn-add-to-cart').each(function() {
+                        $(this).html('<i class="fas fa-cart-plus mr-1"></i> Agregar');
+                        $(this).removeClass('btn-saved');
+                        $(this).prop('disabled', false);
+                    });
                     
                     // Mostrar notificación
                     const notification = document.createElement('div');
-                    notification.className = 'fixed top-4 right-4 bg-red-500 text-white px-4 py-2 rounded shadow-lg transition-opacity duration-500';
-                    notification.innerHTML = `<i class="fas fa-trash-alt mr-2"></i> Carrito vaciado`;
+                    notification.className = 'fixed top-4 right-4 bg-green-500 text-white px-4 py-2 rounded shadow-lg transition-opacity duration-500';
+                    notification.innerHTML = `<i class="fas fa-check-circle mr-2"></i> Carrito vaciado`;
                     document.body.appendChild(notification);
                     
                     setTimeout(() => {
@@ -912,7 +890,7 @@ $whatsappNumber = "573208320246"; // Reemplaza con tu número
                 data.cart.forEach(item => {
                     message += `*${item.nombre}*\n`;
                     message += `- Código: ${item.code || 'N/A'}\n`;
-                    message += `- Precio: $${item.precio_producto.toLocaleString('es-CO')}\n`;
+                    message += `- Precio: $${item.precio.toLocaleString('es-CO')}\n`;
                     message += `- Cantidad: ${item.quantity}\n`;
                     
                     if (item.personalizaciones && item.personalizaciones.length > 0) {
@@ -924,7 +902,7 @@ $whatsappNumber = "573208320246"; // Reemplaza con tu número
                     }
                     
                     message += `\n`;
-                    total += (item.precio_producto + (item.costo_personalizacion || 0)) * item.quantity;
+                    total += item.precio * item.quantity;
                 });
                 
                 message += `*TOTAL: $${total.toLocaleString('es-CO')}*\n\n`;
@@ -975,7 +953,7 @@ $whatsappNumber = "573208320246"; // Reemplaza con tu número
                     
                     // Actualizar carrito si está abierto
                     if (cartModal.classList.contains('open')) {
-                        updateCartView();
+                        actualizarCarrito();
                     }
                 } else {
                     $btn.html('<i class="fas fa-cart-plus mr-1"></i> Agregar');
@@ -983,14 +961,6 @@ $whatsappNumber = "573208320246"; // Reemplaza con tu número
                 }
             }, 'json');
         });
-
-        cartIcon.addEventListener('click', openCart);
-        cartIconMobile.addEventListener('click', openCart);
-        cartOverlay.addEventListener('click', closeCartModal);
-        closeCart.addEventListener('click', closeCartModal);
-
-        // Inicializar contador del carrito
-        updateCartView();
     });
 </script>
 
