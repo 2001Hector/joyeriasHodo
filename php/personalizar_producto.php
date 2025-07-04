@@ -80,6 +80,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
             }
             break;
             
+        case 'clear_cart':
+            unset($_SESSION['carrito']);
+            $response['success'] = true;
+            $response['message'] = 'Carrito vaciado';
+            break;
+            
         case 'get_cart':
             $response['success'] = true;
             break;
@@ -257,8 +263,9 @@ if ($modoPersonalizacion) {
                     <p class="text-gray-500">Tu carrito está vacío</p>
                 </div>
             <?php endif; ?>
+
         </div>
-        
+         
         <div class="p-4 border-t border-gray-200">
             <div class="flex justify-between mb-4">
                 <span class="font-semibold">Total:</span>
@@ -266,9 +273,22 @@ if ($modoPersonalizacion) {
                     $<?= number_format(array_sum(array_map(function($item) { return $item['precio'] * $item['quantity']; }, $_SESSION['carrito'] ?? [])), 0, ',', '.') ?>
                 </span>
             </div>
+
+            <div class="payment-methods">
+                <h4 class="font-semibold text-blue-800 mb-2 flex items-center">
+                    <i class="fas fa-credit-card mr-2"></i> Métodos de pago
+                </h4>
+                <div class="text-sm text-blue-700">
+                    <p class="mb-1"><i class="fas fa-check-circle text-green-500 mr-1"></i>Transferencias bancarias💳</p>
+                    <p><i class="fas fa-check-circle text-green-500 mr-1"></i> Pago contra entrega 💰</p>
+                    <p><i class="fas fa-check-circle text-green-500 mr-1"></i> Costo de envío incluido 🚚</p>
+                </div>
+            </div>
+         <br><br>
             <button id="whatsapp-checkout" class="block w-full bg-green-500 hover:bg-green-600 text-white text-center py-2 rounded-lg font-medium">
-                <i class="fab fa-whatsapp mr-2"></i> Comprar por WhatsApp
+                <i class="fab fa-whatsapp mr-2"></i> Comprar 
             </button>
+            
         </div>
     </div>
 
