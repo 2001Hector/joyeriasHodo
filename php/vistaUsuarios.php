@@ -283,7 +283,7 @@ $whatsappNumber = "573208320246"; // Reemplaza con tu número
                     <i class="fas fa-info-circle mr-2"></i>Categorías
                 </a>   
                 
-                <a href="../php/usuariosPersonalizacion.php" class="text-white hover:text-gray-300 font-medium transition duration-300 px-3 py-2 rounded-md">
+                <a href="../php/personalizar_producto.php" class="text-white hover:text-gray-300 font-medium transition duration-300 px-3 py-2 rounded-md">
   <i class="fas fa-crown mr-2"></i>Personalización de joyas
 </a>
 
@@ -314,7 +314,7 @@ $whatsappNumber = "573208320246"; // Reemplaza con tu número
                 <a href="../php/categorias.php" class="text-white hover:text-gray-300 font-medium transition duration-300 px-3 py-2 rounded-md">
                     <i class="fas fa-info-circle mr-2"></i>Categorías
                 </a>
-                <a href="../php/usuariosPersonalizacion.php" class="text-white hover:text-gray-300 font-medium transition duration-300 px-3 py-2 rounded-md">
+                <a href="../php/personalizar_producto.php" class="text-white hover:text-gray-300 font-medium transition duration-300 px-3 py-2 rounded-md">
   <i class="fas fa-crown mr-2"></i>Personalización de joyas
 </a>
 
