@@ -25,9 +25,19 @@
             
             <!-- Menú para desktop (visible en md y arriba) -->
             <div class="hidden md:flex items-center space-x-8">  <!-- Este div faltaba -->
-                <a href="../php/vistaUsuarios.php" class="text-white hover:text-gray-300 font-medium transition duration-300 px-3 py-2 rounded-md">
-                    <i class="fas fa-box-open mr-2"></i>volver a ver productos
-                </a>
+                <a href="../php/productos_generalesU.php" class="text-white hover:text-gray-300 font-medium transition duration-300 px-3 py-2 rounded-md">
+                        <i class="fas fa-box-open mr-2"></i>Todos los productos
+                    </a>
+                    <a href="../php/categorias.php" class="text-white hover:text-gray-300 font-medium transition duration-300 px-3 py-2 rounded-md">
+                        <i class="fas fa-info-circle mr-2"></i>Productos por categorias
+                    </a>
+                    <a href="../php/personalizar_producto.php" class="text-white hover:text-gray-300 font-medium transition duration-300 px-3 py-2 rounded-md">
+                        <i class="fas fa-crown mr-2"></i>Personalización de joyas
+                    </a>
+
+                    <a href="../php/informacion.php" class="text-white hover:text-gray-300 font-medium transition duration-300 px-3 py-2 rounded-md">
+                        <i class="fas fa-info-circle mr-2"></i>Garantías e información
+                    </a>
             </div>
             
             <!-- Botón hamburguesa para móvil -->

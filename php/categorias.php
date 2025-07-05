@@ -291,19 +291,18 @@ $whatsappNumber = "573208320246"; // Reemplaza con tu número
             <div class="hidden md:flex items-center space-x-8">
 
             <a href="../php/productos_generalesU.php" class="text-white hover:text-gray-300 font-medium transition duration-300 px-3 py-2 rounded-md">
-                        <i class="fas fa-crown mr-2"></i>inicios
+                        <i class="fas fa-box-open mr-2"></i>Todos los productos
                     </a>
-                <a href="../php/categorias.php" class="text-white hover:text-gray-300 font-medium transition duration-300 px-3 py-2 rounded-md">
-                    <i class="fas fa-info-circle mr-2"></i>Categorías
-                </a>   
-                  <a href="../php/personalizar_producto.php" class="text-white hover:text-gray-300 font-medium transition duration-300 px-3 py-2 rounded-md">
+                    <a href="../php/categorias.php" class="text-white hover:text-gray-300 font-medium transition duration-300 px-3 py-2 rounded-md">
+                        <i class="fas fa-info-circle mr-2"></i>Productos por categorias
+                    </a>
+                    <a href="../php/personalizar_producto.php" class="text-white hover:text-gray-300 font-medium transition duration-300 px-3 py-2 rounded-md">
                         <i class="fas fa-crown mr-2"></i>Personalización de joyas
                     </a>
-                    
 
-                <a href="../php/informacion.php" class="text-white hover:text-gray-300 font-medium transition duration-300 px-3 py-2 rounded-md">
-                    <i class="fas fa-info-circle mr-2"></i>Garantías e información
-                </a>
+                    <a href="../php/informacion.php" class="text-white hover:text-gray-300 font-medium transition duration-300 px-3 py-2 rounded-md">
+                        <i class="fas fa-info-circle mr-2"></i>Garantías e información
+                    </a>
                 <div class="cart-icon text-white cursor-pointer relative" id="cart-icon">
                     <i class="fas fa-shopping-cart text-xl"></i>
                     <span class="cart-count" id="cart-count"><?= array_sum(array_column($_SESSION['carrito'] ?? [], 'quantity')) ?></span>
