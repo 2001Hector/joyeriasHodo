@@ -310,26 +310,24 @@ try {
                 </div>
                 
                 <!-- Menú para desktop -->
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="../php/index.php" class="text-white hover:text-yellow-200 font-medium transition duration-300 px-3 py-2 rounded-md">
-            <i class="fas fa-home mr-2"></i>Inicio
+                <div class="hidden md:flex items-center gap">
+                    <a href="../php/index.php" class="text-white hover:text-yellow-200 font-medium transition duration-300 px-3 py-2 rounded-md text-sm">
+            <i class="fas fa-home mr-2"></i>Inicio agregar producto
           </a>
-          <a href="../php/ver_productos.php" class="text-white hover:text-yellow-200 font-medium transition duration-300 px-3 py-2 rounded-md">
+          <a href="../php/ver_productos.php" class="text-white hover:text-yellow-200 font-medium transition duration-300 px-3 py-2 rounded-md text-sm">
             <i class="fas fa-eye mr-2"></i>Ver Productos
           </a>
-           <a href="../php/hacerP.php" class="text-white hover:text-yellow-200 font-medium transition duration-300">
-    <i class="fas fa-shopping-basket mr-2"></i>hacer Pedidos
-   </a>
-<a href="../php/productos_generalesU.php" class="text-white hover:text-yellow-200 font-medium transition duration-300 px-3 py-2 rounded-md">
-    <i class="fas fa-users mr-2"></i>Vista de clientes
-</a>
-<a href="../php/estados.php" class="text-white hover:text-yellow-200 font-medium transition duration-300 px-3 py-2 rounded-md">
-  <i class="fas fa-truck mr-2"></i>Estado de pedidos
-</a>
-
-
-          <a href="../php/vistaUsuarios.php" class="text-white hover:text-yellow-200 font-medium transition duration-300 px-3 py-2 rounded-md">
-            <i class="fas fa-chart-line mr-2"></i>Reportes
+          <a href="../php/hacerP.php" class="text-white hover:text-yellow-200 font-medium transition duration-300 text-sm">
+            <i class="fas fa-shopping-basket mr-2"></i>hacer Pedidos
+          </a>
+          <a href="../php/productos_generalesU.php" class="text-white hover:text-yellow-200 font-medium transition duration-300 px-3 py-2 rounded-md text-sm">
+            <i class="fas fa-users mr-2"></i>Vista de clientes
+          </a>
+          <a href="../php/estados.php" class="text-white hover:text-yellow-200 font-medium transition duration-300 px-3 py-2 rounded-md text-sm">
+            <i class="fas fa-truck mr-2"></i>Estado de pedidos
+          </a>
+          <a href="../php/ver_personalizaciones.php" class="text-white hover:text-yellow-200 font-medium transition duration-300 px-3 py-2 rounded-md text-sm">
+            <i class="fas fa-paint-brush mr-2"></i>Personalizaciones
           </a>
                 </div>
                 
@@ -345,25 +343,23 @@ try {
             <div id="mobile-menu" class="hidden md:hidden pb-4">
                 <div class="flex flex-col space-y-3 px-2 pt-2">
                      <div class="flex flex-col space-y-3 px-2 pt-2">
-          <a href="../php/index.php" class="text-white hover:text-yellow-200 font-medium transition duration-300 px-3 py-2 rounded-md">
-            <i class="fas fa-home mr-2"></i>Inicio
+          <a href="../php/index.php" class="text-white hover:text-yellow-200 font-medium transition duration-300 px-3 py-2 rounded-md text-sm">
+            <i class="fas fa-home mr-2"></i>Inicio agregar producto
           </a>
-          <a href="../php/ver_productos.php" class="text-white hover:text-yellow-200 font-medium transition duration-300 px-3 py-2 rounded-md">
+          <a href="../php/ver_productos.php" class="text-white hover:text-yellow-200 font-medium transition duration-300 px-3 py-2 rounded-md text-sm">
             <i class="fas fa-eye mr-2"></i>Ver Productos
           </a>
-           <a href="../php/hacerP.php" class="text-white hover:text-yellow-200 font-medium transition duration-300">
-    <i class="fas fa-shopping-basket mr-2"></i>hacer Pedidos
-   </a>
-<a href="../php/productos_generalesU.php" class="text-white hover:text-yellow-200 font-medium transition duration-300 px-3 py-2 rounded-md">
-    <i class="fas fa-users mr-2"></i>Vista de clientes
-</a>
-<a href="../php/estados.php" class="text-white hover:text-yellow-200 font-medium transition duration-300 px-3 py-2 rounded-md">
-  <i class="fas fa-truck mr-2"></i>Estado de pedidos
-</a>
-
-
-          <a href="../php/vistaUsuarios.php" class="text-white hover:text-yellow-200 font-medium transition duration-300 px-3 py-2 rounded-md">
-            <i class="fas fa-chart-line mr-2"></i>Reportes
+          <a href="../php/hacerP.php" class="text-white hover:text-yellow-200 font-medium transition duration-300 text-sm">
+            <i class="fas fa-shopping-basket mr-2"></i>hacer Pedidos
+          </a>
+          <a href="../php/productos_generalesU.php" class="text-white hover:text-yellow-200 font-medium transition duration-300 px-3 py-2 rounded-md text-sm">
+            <i class="fas fa-users mr-2"></i>Vista de clientes
+          </a>
+          <a href="../php/estados.php" class="text-white hover:text-yellow-200 font-medium transition duration-300 px-3 py-2 rounded-md text-sm">
+            <i class="fas fa-truck mr-2"></i>Estado de pedidos
+          </a>
+          <a href="../php/ver_personalizaciones.php" class="text-white hover:text-yellow-200 font-medium transition duration-300 px-3 py-2 rounded-md text-sm">
+            <i class="fas fa-paint-brush mr-2"></i>Personalizaciones
           </a>
                 </div>
             </div>
@@ -433,97 +429,248 @@ try {
             </div>
 
             <!-- Modal para cliente existente -->
-            <div id="modalCliente" class="modal fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 hidden">
-                <div class="modal-content bg-white rounded-lg shadow-lg w-full max-w-4xl mx-4 max-h-[90vh] flex flex-col">
-                    <div class="p-6 border-b border-gray-200 flex justify-between items-center">
-                        <h3 class="text-xl font-bold text-gray-800">Seleccionar Cliente Existente</h3>
-                        <span class="close text-gray-500 hover:text-gray-700 cursor-pointer text-2xl">&times;</span>
-                    </div>
-                    
-                    <div class="p-6 pt-0">
-                        <div class="mb-4">
-                            <input type="text" id="buscarCliente" placeholder="Buscar cliente..." 
-                                   class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 outline-none">
-                        </div>
+            <!-- Modal para cliente existente -->
+<div id="modalCliente" class="modal fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 hidden">
+    <div class="modal-content bg-white rounded-lg shadow-lg w-full max-w-4xl mx-4" style="max-height: 90vh; display: flex; flex-direction: column;">
+        <div class="p-6 border-b border-gray-200 flex justify-between items-center">
+            <h3 class="text-xl font-bold text-gray-800">Seleccionar Cliente Existente</h3>
+            <span class="close text-gray-500 hover:text-gray-700 cursor-pointer text-2xl">&times;</span>
+        </div>
+        
+        <div class="p-6 pt-0 flex-1 overflow-hidden flex flex-col">
+            <!-- Contenedor del buscador fijo en la parte superior -->
+            <div class="mb-4 sticky top-0 bg-white pt-2 pb-4 z-10">
+                <input type="text" id="buscarCliente" placeholder="Buscar cliente..." 
+                       class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 outline-none">
+            </div>
+            
+            <!-- Contenedor de la tabla con scroll -->
+            <div class="flex-1 overflow-y-auto">
+                <table class="min-w-full divide-y divide-gray-200">
+                    <thead class="bg-gray-50 sticky top-0 z-10">
+                        <tr>
+                            <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Nombre</th>
+                            <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Correo</th>
+                            <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Teléfono</th>
+                            <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Acción</th>
+                        </tr>
+                    </thead>
+                    <tbody id="listaClientes" class="bg-white divide-y divide-gray-200">
+                        <?php 
+                        // Configuración de paginación
+                        $clientesPorPagina = 10;
+                        $paginaActual = isset($_GET['pagina']) ? (int)$_GET['pagina'] : 1;
+                        $totalClientes = count($clientes);
+                        $totalPaginas = ceil($totalClientes / $clientesPorPagina);
+                        $inicio = ($paginaActual - 1) * $clientesPorPagina;
+                        $clientesPagina = array_slice($clientes, $inicio, $clientesPorPagina);
                         
-                        <div class="overflow-auto">
-                            <table class="min-w-full divide-y divide-gray-200">
-                                <thead class="bg-gray-50">
-                                    <tr>
-                                        <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-1/4">Nombre</th>
-                                        <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-1/3">Correo</th>
-                                        <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-1/4">Teléfono</th>
-                                        <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-24">Acción</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="listaClientes" class="bg-white divide-y divide-gray-200">
-                                    <?php foreach ($clientes as $cliente): ?>
-                                        <tr class="hover:bg-gray-50">
-                                            <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-900"><?= htmlspecialchars($cliente['nombre_u']) ?></td>
-                                            <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-600 truncate max-w-xs"><?= htmlspecialchars($cliente['correo_u']) ?></td>
-                                            <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-600"><?= htmlspecialchars($cliente['numero_u'] ?? 'N/A') ?></td>
-                                            <td class="px-4 py-4 whitespace-nowrap">
-                                                <button type="button" class="seleccionar-cliente bg-yellow-600 text-white px-3 py-2 rounded-md hover:bg-yellow-700 transition text-sm font-medium w-full" 
-                                                        data-id="<?= $cliente['id_u'] ?>">
-                                                    Seleccionar
-                                                </button>
-                                            </td>
-                                        </tr>
-                                    <?php endforeach; ?>
-                                </tbody>
-                            </table>
-                        </div>
+                        foreach ($clientesPagina as $cliente): ?>
+                            <tr class="hover:bg-gray-50">
+                                <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-900"><?= htmlspecialchars($cliente['nombre_u']) ?></td>
+                                <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-600 truncate max-w-xs"><?= htmlspecialchars($cliente['correo_u']) ?></td>
+                                <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-600 font-mono"><?= htmlspecialchars($cliente['numero_u'] ?? 'N/A') ?></td>
+                                <td class="px-4 py-4 whitespace-nowrap">
+                                    <button type="button" class="seleccionar-cliente bg-yellow-600 text-white px-3 py-1.5 rounded-md hover:bg-yellow-700 transition text-sm font-medium whitespace-nowrap" 
+                                            data-id="<?= $cliente['id_u'] ?>">
+                                        Seleccionar
+                                    </button>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </div>
+            
+            <!-- Paginación funcional que no cierra el modal -->
+            <div class="px-6 py-4 border-t border-gray-200 bg-white sticky bottom-0">
+                <div class="flex items-center justify-between">
+                    <div class="hidden sm:block">
+                        <p class="text-sm text-gray-700">
+                            Mostrando <span class="font-medium"><?= $inicio + 1 ?></span> a <span class="font-medium"><?= min($inicio + $clientesPorPagina, $totalClientes) ?></span> de <span class="font-medium"><?= $totalClientes ?></span> resultados
+                        </p>
+                    </div>
+                    <div class="flex-1 flex justify-between sm:justify-end">
+                        <?php if ($paginaActual > 1): ?>
+                            <button onclick="cambiarPagina(<?= $paginaActual - 1 ?>)" class="relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50">
+                                Anterior
+                            </button>
+                        <?php else: ?>
+                            <span class="relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-300 bg-white cursor-not-allowed">
+                                Anterior
+                            </span>
+                        <?php endif; ?>
+                        
+                        <?php if ($paginaActual < $totalPaginas): ?>
+                            <button onclick="cambiarPagina(<?= $paginaActual + 1 ?>)" class="ml-3 relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50">
+                                Siguiente
+                            </button>
+                        <?php else: ?>
+                            <span class="ml-3 relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-300 bg-white cursor-not-allowed">
+                                Siguiente
+                            </span>
+                        <?php endif; ?>
                     </div>
                 </div>
+                
+                <!-- Números de página -->
+                <div class="hidden sm:flex sm:flex-1 sm:items-center sm:justify-center mt-4">
+                    <nav class="relative z-0 inline-flex rounded-md shadow-sm -space-x-px" aria-label="Pagination">
+                        <?php 
+                        // Mostrar números de página (máximo 5)
+                        $inicioPaginas = max(1, min($paginaActual - 2, $totalPaginas - 4));
+                        $finPaginas = min($totalPaginas, $inicioPaginas + 4);
+                        
+                        if ($inicioPaginas > 1): ?>
+                            <button onclick="cambiarPagina(1)" class="relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
+                                1
+                            </button>
+                            <?php if ($inicioPaginas > 2): ?>
+                                <span class="relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700">
+                                    ...
+                                </span>
+                            <?php endif; ?>
+                        <?php endif; ?>
+                        
+                        <?php for ($i = $inicioPaginas; $i <= $finPaginas; $i++): ?>
+                            <button onclick="cambiarPagina(<?= $i ?>)" class="<?= $i == $paginaActual ? 'z-10 bg-yellow-50 border-yellow-500 text-yellow-600' : 'bg-white border-gray-300 text-gray-500 hover:bg-gray-50' ?> relative inline-flex items-center px-4 py-2 border text-sm font-medium">
+                                <?= $i ?>
+                            </button>
+                        <?php endfor; ?>
+                        
+                        <?php if ($finPaginas < $totalPaginas): ?>
+                            <?php if ($finPaginas < $totalPaginas - 1): ?>
+                                <span class="relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700">
+                                    ...
+                                </span>
+                            <?php endif; ?>
+                            <button onclick="cambiarPagina(<?= $totalPaginas ?>)" class="relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
+                                <?= $totalPaginas ?>
+                            </button>
+                        <?php endif; ?>
+                    </nav>
+                </div>
             </div>
-            <script>
-                // Manejo del modal de clientes
-                const modal = document.getElementById("modalCliente");
-                const btn = document.getElementById("btn-cliente-existente");
-                const span = document.getElementsByClassName("close")[0];
-                const buscarCliente = document.getElementById("buscarCliente");
-                const listaClientes = document.getElementById("listaClientes");
-                
-                btn.onclick = function() {
-                    modal.style.display = "block";
-                }
-                
-                span.onclick = function() {
-                    modal.style.display = "none";
-                }
-                
-                window.onclick = function(event) {
-                    if (event.target == modal) {
-                        modal.style.display = "none";
-                    }
-                }
-                
-                // Buscar clientes
-                buscarCliente.addEventListener('input', function() {
-                    const termino = this.value.toLowerCase();
-                    const filas = listaClientes.querySelectorAll('tr');
-                    
-                    filas.forEach(fila => {
-                        const textoFila = fila.textContent.toLowerCase();
-                        if (textoFila.includes(termino)) {
-                            fila.style.display = '';
-                        } else {
-                            fila.style.display = 'none';
-                        }
-                    });
-                });
-                
-                // Seleccionar cliente
-                listaClientes.addEventListener('click', function(e) {
-                    if (e.target.classList.contains('seleccionar-cliente')) {
-                        const idCliente = e.target.dataset.id;
-                        window.location.href = `hacerP.php?paso=2&id_usuario=${idCliente}`;
-                    }
-                });
-            </script>
-        <?php endif; ?>
+        </div>
+    </div>
+</div>
 
-        <!-- Paso 2: Creación de Pedido -->
+<script>
+    // Manejo del modal de clientes
+    const modal = document.getElementById("modalCliente");
+    const btn = document.getElementById("btn-cliente-existente");
+    const span = document.getElementsByClassName("close")[0];
+    const buscarCliente = document.getElementById("buscarCliente");
+    const listaClientes = document.getElementById("listaClientes");
+    
+    // Abrir modal
+    if (btn) {
+        btn.onclick = function() {
+            modal.style.display = "flex";
+            document.body.style.overflow = "hidden"; // Evita scroll en el fondo
+        }
+    }
+    
+    // Cerrar modal
+    if (span) {
+        span.onclick = function() {
+            modal.style.display = "none";
+            document.body.style.overflow = "auto"; // Restaura scroll
+        }
+    }
+    
+    // Cerrar al hacer clic fuera
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+            document.body.style.overflow = "auto"; // Restaura scroll
+        }
+    }
+    
+    // Buscar clientes (en la página actual)
+    if (buscarCliente) {
+        buscarCliente.addEventListener('input', function() {
+            const termino = this.value.toLowerCase();
+            const filas = listaClientes.querySelectorAll('tr');
+            
+            filas.forEach(fila => {
+                const textoFila = fila.textContent.toLowerCase();
+                fila.style.display = textoFila.includes(termino) ? '' : 'none';
+            });
+        });
+    }
+    
+    // Seleccionar cliente
+    if (listaClientes) {
+        listaClientes.addEventListener('click', function(e) {
+            if (e.target.classList.contains('seleccionar-cliente')) {
+                const idCliente = e.target.dataset.id;
+                window.location.href = `hacerP.php?paso=2&id_usuario=${idCliente}`;
+            }
+        });
+    }
+    
+    // Función para cambiar de página sin cerrar el modal
+    function cambiarPagina(pagina) {
+        const url = new URL(window.location.href);
+        url.searchParams.set('pagina', pagina);
+        
+        // Mostrar loader
+        const loader = document.createElement('div');
+        loader.className = 'fixed inset-0 bg-black bg-opacity-30 flex items-center justify-center z-50';
+        loader.innerHTML = '<div class="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-yellow-500"></div>';
+        document.body.appendChild(loader);
+        
+        // Usamos fetch para cargar los datos sin recargar la página
+        fetch(url)
+            .then(response => response.text())
+            .then(html => {
+                // Parseamos el HTML para extraer solo la tabla y paginación
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(html, 'text/html');
+                const newTable = doc.getElementById('listaClientes');
+                const newPagination = doc.querySelector('.px-6.py-4.border-t');
+                
+                if (newTable && listaClientes) {
+                    listaClientes.innerHTML = newTable.innerHTML;
+                }
+                
+                if (newPagination) {
+                    const currentPagination = document.querySelector('.px-6.py-4.border-t');
+                    if (currentPagination) {
+                        currentPagination.innerHTML = newPagination.innerHTML;
+                    }
+                }
+                
+                // Restaurar el valor de búsqueda
+                if (buscarCliente) {
+                    const currentSearch = buscarCliente.value;
+                    if (currentSearch) {
+                        const filas = listaClientes.querySelectorAll('tr');
+                        filas.forEach(fila => {
+                            const textoFila = fila.textContent.toLowerCase();
+                            fila.style.display = textoFila.includes(currentSearch.toLowerCase()) ? '' : 'none';
+                        });
+                    }
+                }
+            })
+            .catch(error => {
+                console.error('Error al cargar la página:', error);
+                // Fallback: recargar la página normalmente
+                window.location.href = url;
+            })
+            .finally(() => {
+                // Ocultar loader
+                if (loader.parentNode) {
+                    loader.parentNode.removeChild(loader);
+                }
+            });
+    }
+</script>
+        <?php endif; ?>
+<!-- Paso 2: Creación de Pedido -->
+
+        <!-- Paso 3: Creación de Pedido -->
         <?php if ($paso === 2 && $id_usuario): ?>
             <?php
             // Obtener datos del usuario

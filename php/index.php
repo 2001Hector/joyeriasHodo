@@ -104,23 +104,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
         
         <!-- Menú desktop -->
-        <div class="hidden md:flex items-center space-x-8">
-          <a href="../php/index.php" class="text-white hover:text-yellow-200 font-medium transition duration-300 px-3 py-2 rounded-md">
-            <i class="fas fa-home mr-2"></i>Inicio
+        <div class="hidden md:flex items-center gap">
+          <a href="../php/index.php" class="text-white hover:text-yellow-200 font-medium transition duration-300 px-3 py-2 rounded-md text-sm">
+            <i class="fas fa-home mr-2"></i>Inicio agregar producto
           </a>
-          <a href="../php/ver_productos.php" class="text-white hover:text-yellow-200 font-medium transition duration-300 px-3 py-2 rounded-md">
+          <a href="../php/ver_productos.php" class="text-white hover:text-yellow-200 font-medium transition duration-300 px-3 py-2 rounded-md text-sm">
             <i class="fas fa-eye mr-2"></i>Ver Productos
           </a>
-          <a href="../php/hacerP.php" class="text-white hover:text-yellow-200 font-medium transition duration-300">
+          <a href="../php/hacerP.php" class="text-white hover:text-yellow-200 font-medium transition duration-300 text-sm">
             <i class="fas fa-shopping-basket mr-2"></i>hacer Pedidos
           </a>
-          <a href="../php/productos_generalesU.php" class="text-white hover:text-yellow-200 font-medium transition duration-300 px-3 py-2 rounded-md">
+          <a href="../php/productos_generalesU.php" class="text-white hover:text-yellow-200 font-medium transition duration-300 px-3 py-2 rounded-md text-sm">
             <i class="fas fa-users mr-2"></i>Vista de clientes
           </a>
-          <a href="../php/estados.php" class="text-white hover:text-yellow-200 font-medium transition duration-300 px-3 py-2 rounded-md">
+          <a href="../php/estados.php" class="text-white hover:text-yellow-200 font-medium transition duration-300 px-3 py-2 rounded-md text-sm">
             <i class="fas fa-truck mr-2"></i>Estado de pedidos
           </a>
-          <a href="../php/ver_personalizaciones.php" class="text-white hover:text-yellow-200 font-medium transition duration-300 px-3 py-2 rounded-md">
+          <a href="../php/ver_personalizaciones.php" class="text-white hover:text-yellow-200 font-medium transition duration-300 px-3 py-2 rounded-md text-sm">
             <i class="fas fa-paint-brush mr-2"></i>Personalizaciones
           </a>
         </div>
@@ -136,22 +136,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       <!-- Menú móvil -->
       <div id="mobile-menu" class="hidden md:hidden pb-4">
         <div class="flex flex-col space-y-3 px-2 pt-2">
-          <a href="../php/index.php" class="text-white hover:text-yellow-200 font-medium transition duration-300 px-3 py-2 rounded-md">
-            <i class="fas fa-home mr-2"></i>Inicio
+          <a href="../php/index.php" class="text-white hover:text-yellow-200 font-medium transition duration-300 px-3 py-2 rounded-md text-sm">
+            <i class="fas fa-home mr-2"></i>Inicio agregar producto
           </a>
-          <a href="../php/ver_productos.php" class="text-white hover:text-yellow-200 font-medium transition duration-300 px-3 py-2 rounded-md">
+          <a href="../php/ver_productos.php" class="text-white hover:text-yellow-200 font-medium transition duration-300 px-3 py-2 rounded-md text-sm">
             <i class="fas fa-eye mr-2"></i>Ver Productos
           </a>
-          <a href="../php/hacerP.php" class="text-white hover:text-yellow-200 font-medium transition duration-300">
+          <a href="../php/hacerP.php" class="text-white hover:text-yellow-200 font-medium transition duration-300 text-sm">
             <i class="fas fa-shopping-basket mr-2"></i>hacer Pedidos
           </a>
-          <a href="../php/productos_generalesU.php" class="text-white hover:text-yellow-200 font-medium transition duration-300 px-3 py-2 rounded-md">
+          <a href="../php/productos_generalesU.php" class="text-white hover:text-yellow-200 font-medium transition duration-300 px-3 py-2 rounded-md text-sm">
             <i class="fas fa-users mr-2"></i>Vista de clientes
           </a>
-          <a href="../php/estados.php" class="text-white hover:text-yellow-200 font-medium transition duration-300 px-3 py-2 rounded-md">
+          <a href="../php/estados.php" class="text-white hover:text-yellow-200 font-medium transition duration-300 px-3 py-2 rounded-md text-sm">
             <i class="fas fa-truck mr-2"></i>Estado de pedidos
           </a>
-          <a href="../php/ver_personalizaciones.php" class="text-white hover:text-yellow-200 font-medium transition duration-300 px-3 py-2 rounded-md">
+          <a href="../php/ver_personalizaciones.php" class="text-white hover:text-yellow-200 font-medium transition duration-300 px-3 py-2 rounded-md text-sm">
             <i class="fas fa-paint-brush mr-2"></i>Personalizaciones
           </a>
         </div>
