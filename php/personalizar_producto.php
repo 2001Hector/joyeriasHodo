@@ -405,7 +405,7 @@ if ($modoPersonalizacion) {
                                         <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
                                             <?php foreach ($p['imagenes'] as $img): ?>
                                                 <div class="cursor-pointer" onclick="seleccionarOpcion(this, <?= $p['id_personalizacion'] ?>, <?= $img['id_imagen_personalizacion'] ?>, '<?= addslashes($img['descripcion_imagen'] ?? '') ?>')">
-                                                    <img src="../uploads/<?= $img['imagenP'] ?>"
+                                                    <img src="../uploads/personalizaciones/<?= $img['imagenP'] ?>"
                                                         alt="<?= $img['descripcion_imagen'] ?? '' ?>"
                                                         class="option-img w-full h-24 object-cover rounded border border-gray-200">
                                                     <?php if (!empty($img['descripcion_imagen'])): ?>
@@ -771,19 +771,29 @@ if ($modoPersonalizacion) {
         // Personalización
         <?php if ($modoPersonalizacion): ?>
 
+            // ...existing code...
             function seleccionarOpcion(elemento, idPersonalizacion, idOpcion, nombreOpcion) {
-                $(elemento).closest('.bg-gray-50').find('.option-img').removeClass('selected');
-                $(elemento).find('.option-img').addClass('selected');
+                const $img = $(elemento).find('.option-img');
+                const yaSeleccionada = $img.hasClass('selected');
 
-                selecciones[idPersonalizacion] = {
-                    id: idOpcion,
-                    nombre: nombreOpcion,
-                    personalizacion: $(elemento).closest('.bg-gray-50').find('h3').text()
-                };
+                // Si ya está seleccionada, deselecciona
+                if (yaSeleccionada) {
+                    $img.removeClass('selected');
+                    delete selecciones[idPersonalizacion];
+                } else {
+                    // Selecciona esta y deselecciona las demás
+                    $(elemento).closest('.bg-gray-50').find('.option-img').removeClass('selected');
+                    $img.addClass('selected');
+                    selecciones[idPersonalizacion] = {
+                        id: idOpcion,
+                        nombre: nombreOpcion,
+                        personalizacion: $(elemento).closest('.bg-gray-50').find('h3').text()
+                    };
+                }
 
                 actualizarResumen();
             }
-
+            // ...existing code...
             function actualizarResumen() {
                 const $resumen = $('#resumen');
                 const $opciones = $('#opciones-seleccionadas');
