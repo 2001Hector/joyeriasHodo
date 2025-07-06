@@ -333,26 +333,25 @@ $whatsappNumber = "573208320246"; // Reemplaza con tu número
                     <span class="text-white font-bold text-xl">Joyería hodo</span>
                 </div>
 
-                <div class="hidden md:flex items-center space-x-8">
+                <div class="hidden md:flex items-center gap">
 
-
-                    <a href="../php/productos_generalesU.php" class="text-white hover:text-gray-300 font-medium transition duration-300 px-3 py-2 rounded-md">
+                    <a href="../php/productos_generalesU.php" class="block text-white hover:bg-white hover:text-black px-3 py-2 rounded transition duration-300">
                         <i class="fas fa-box-open mr-2"></i>Todos los productos
                     </a>
-                    <<a href="../php/categorias.php" class="text-white hover:text-gray-300 font-medium transition duration-300 px-3 py-2 rounded-md">
+                    <a href="../php/categorias.php" class="block text-white hover:bg-white hover:text-black px-3 py-2 rounded transition duration-300">
                         <i class="fas fa-boxes mr-2"></i>Productos por categorías
-                        </a>
-                        <a href="../php/personalizar_producto.php" class="text-white hover:text-gray-300 font-medium transition duration-300 px-3 py-2 rounded-md">
-                            <i class="fas fa-crown mr-2"></i>Personalización de joyas
-                        </a>
+                    </a>
+                    <a href="../php/personalizar_producto.php" class="block text-white hover:bg-white hover:text-black px-3 py-2 rounded transition duration-300">
+                        <i class="fas fa-crown mr-2"></i>Personalización de joyas
+                    </a>
+                    <a href="../php/informacion.php" class="block text-white hover:bg-white hover:text-black px-3 py-2 rounded transition duration-300">
+                        <i class="fas fa-info-circle mr-2"></i>Garantías e información
+                    </a>
 
-                        <a href="../php/informacion.php" class="text-white hover:text-gray-300 font-medium transition duration-300 px-3 py-2 rounded-md">
-                            <i class="fas fa-info-circle mr-2"></i>Garantías e información
-                        </a>
-                        <div class="cart-icon text-white cursor-pointer relative" id="cart-icon">
-                            <i class="fas fa-shopping-cart text-xl"></i>
-                            <span class="cart-count" id="cart-count"><?= array_sum(array_column($_SESSION['carrito'] ?? [], 'quantity')) ?></span>
-                        </div>
+                    <div class="cart-icon text-white cursor-pointer relative" id="cart-icon">
+                        <i class="fas fa-shopping-cart text-xl"></i>
+                        <span class="cart-count" id="cart-count"><?= array_sum(array_column($_SESSION['carrito'] ?? [], 'quantity')) ?></span>
+                    </div>
                 </div>
 
                 <div class="md:hidden flex items-center space-x-4">
@@ -367,22 +366,20 @@ $whatsappNumber = "573208320246"; // Reemplaza con tu número
             </div>
 
             <div id="mobile-menu" class="hidden md:hidden pb-4">
-                <div class="flex flex-col space-y-3 px-2 pt-2">
-                    <a href="../php/productos_generalesU.php" class="text-white hover:text-gray-300 font-medium transition duration-300 px-3 py-2 rounded-md">
-                        <i class="fas fa-box-open mr-2"></i>Todos los productos
-                    </a>
-                    <a href="../php/categorias.php" class="text-white hover:text-gray-300 font-medium transition duration-300 px-3 py-2 rounded-md">
-                        <i class="fas fa-info-circle mr-2"></i>Productos por categorias
-                    </a>
-                    <a href="../php/personalizar_producto.php" class="text-white hover:text-gray-300 font-medium transition duration-300 px-3 py-2 rounded-md">
-                        <i class="fas fa-crown mr-2"></i>Personalización de joyas
-                    </a>
-
-                    <a href="../php/informacion.php" class="text-white hover:text-gray-300 font-medium transition duration-300 px-3 py-2 rounded-md">
-                        <i class="fas fa-info-circle mr-2"></i>Garantías e información
-                    </a>
-                </div>
+                <a href="../php/productos_generalesU.php" class="block text-white hover:bg-white hover:text-black px-3 py-2 rounded transition duration-300">
+                    <i class="fas fa-box-open mr-2"></i>Todos los productos
+                </a>
+                <a href="../php/categorias.php" class="block text-white hover:bg-white hover:text-black px-3 py-2 rounded transition duration-300">
+                    <i class="fas fa-boxes mr-2"></i>Productos por categorías
+                </a>
+                <a href="../php/personalizar_producto.php" class="block text-white hover:bg-white hover:text-black px-3 py-2 rounded transition duration-300">
+                    <i class="fas fa-crown mr-2"></i>Personalización de joyas
+                </a>
+                <a href="../php/informacion.php" class="block text-white hover:bg-white hover:text-black px-3 py-2 rounded transition duration-300">
+                    <i class="fas fa-info-circle mr-2"></i>Garantías e información
+                </a>
             </div>
+        </div>
         </div>
     </nav>
 
