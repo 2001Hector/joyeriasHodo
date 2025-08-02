@@ -1,8 +1,8 @@
 <?php
-$servidor = "localhost";
-$usuario = "root";
-$contrasena = "";
-$basedatos = "joyeria_db";
+$servidor = "mysql.hostinger.com";
+$usuario = "Hector_jose";
+$contrasena = "2001Chamorro";
+$basedatos = "u680910350_joyeriaHodo";
 
 try {
     $conexionJ = new PDO("mysql:host=$servidor;dbname=$basedatos", $usuario, $contrasena);
