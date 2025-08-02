@@ -1,6 +1,6 @@
 <?php
 $servidor = "mysql.hostinger.com";
-$usuario = "Hector_jose";
+$usuario = "u680910350_Hector_jose";
 $contrasena = "2001Chamorro";
 $basedatos = "u680910350_joyeriaHodo";
 
