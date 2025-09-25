@@ -27,8 +27,7 @@ $whatsappNumber = "573208320246"; // Reemplaza con tu número
 
 <head>
     <meta charset="UTF-8">
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6922726226939700"
-     crossorigin="anonymous"></script>
+    <meta name="google-adsense-account" content="ca-pub-6922726226939700">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Joyería Hodo - Productos</title>
     <link rel="stylesheet" href="../src/output.css">

@@ -3,8 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6922726226939700"
-     crossorigin="anonymous"></script>
+    <meta name="google-adsense-account" content="ca-pub-6922726226939700">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Joyería Hodo - Sobre Nosotros</title>
     <link rel="stylesheet" href="../src/output.css">
