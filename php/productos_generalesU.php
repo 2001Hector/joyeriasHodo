@@ -481,7 +481,7 @@ $whatsappNumber = "573208320246"; // Reemplaza con tu número
     </div>
 
     <div class="container mx-auto px-4 py-8">
-        <h1 class="text-3xl font-bold text-center mb-8">Nuestros Productos</h1>
+        <h1 class="text-3xl font-bold text-center mb-8">Nuestross Productos</h1>
 
         <!-- Buscador mejorado -->
         <div class="search-container">
